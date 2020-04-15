@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+from ida_parse_trace_line_helper.operand import Operand
 from ida_parse_trace_line_helper.trace_line_info import TraceData
 
 
@@ -21,11 +21,11 @@ class TraceLine:
     def get_mnemonic(self) -> str:
         return self.__data.mnemonic
 
-    def get_operands(self) -> str:
-        return self.__data.operands
+    def get_operands(self) -> list:
+        return [Operand(x) for x in self.__data.operands]
 
     def get_operand(self, index):
-        return self.__data.operands[index] if index < len(self.__data.operands) else None
+        return Operand(self.__data.operands[index]) if index < len(self.__data.operands) else None
 
     def __parse_trace_line_to_list(self):
         if self.__raw_trace_line:

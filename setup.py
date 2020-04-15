@@ -7,7 +7,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="ida-parse-trace-line-helper",
-    version="0.0.2",
+    version="0.0.4",
     author="beyond_mark",
     author_email="luck.yangbo@gmail.com",
     description="parse trace file",
