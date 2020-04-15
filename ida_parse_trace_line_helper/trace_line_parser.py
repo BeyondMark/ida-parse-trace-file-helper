@@ -4,12 +4,19 @@ from ida_parse_trace_line_helper.trace_line_info import TraceData
 
 
 class TraceLine:
+
     def __init__(self, trace_line: str):
         self.__raw_trace_line = trace_line
         self.__data = self.__parse_trace_line_to_list()
 
     def get_changed_register(self) -> dict:
         return self.__data.changed_registers
+
+    def get_source_operands(self):
+        return self.get_operands()[1:]
+
+    def get_dest_operand(self):
+        return self.get_operand(0)
 
     def get_mnemonic(self) -> str:
         return self.__data.mnemonic
@@ -41,4 +48,3 @@ class TraceLine:
             operands=self.__data.operands,
             changed_registers=self.__data.changed_registers
         )
-
