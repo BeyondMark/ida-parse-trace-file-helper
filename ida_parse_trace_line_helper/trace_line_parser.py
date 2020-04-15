@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 from ida_parse_trace_line_helper.trace_line_info import TraceData
 
 
